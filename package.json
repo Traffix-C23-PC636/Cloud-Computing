@@ -1,0 +1,34 @@
+{
+  "name": "traffix-backend",
+  "version": "1.0.0",
+  "description": "Traffix REST API",
+  "main": "src/app.js",
+  "type": "module",
+  "scripts": {
+    "lint:scripts": "eslint --fix --ext .js --ignore-path .gitignore .",
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Irfanakbari/traffix-backend.git"
+  },
+  "author": "Traffix Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Irfanakbari/traffix-backend/issues"
+  },
+  "homepage": "https://github.com/Irfanakbari/traffix-backend#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.41.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "nodemon": "^2.0.22"
+  }
+}
