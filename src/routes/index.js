@@ -1,11 +1,7 @@
 import express from 'express'
+import HomeController from "../controllers/home_controller.js";
 
 export const router = express.Router()
 
 // Home
-router.get('/', (req, res) => {
-  res.json({
-    status: 200,
-    message: 'Welcome to Traffix REST API'
-  })
-})
+router.get('/', HomeController.get)
