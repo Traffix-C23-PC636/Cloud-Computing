@@ -8,7 +8,7 @@
     "lint:scripts": "eslint --fix --ext .js --ignore-path .gitignore .",
     "start": "node src/app.js",
     "dev": "nodemon src/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/Irfanakbari/traffix-backend#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "firebase-admin": "^11.8.0"
   },
   "devDependencies": {
     "eslint": "^8.41.0",
