@@ -17,7 +17,7 @@ const firebaseAuthMiddleware = (req, res, next) => {
             req.uid = decodedToken.uid;
             next();
         })
-        .catch((error) => {
+        .catch(() => {
             return res.status(401).json({
                 status: 401,
                 message: unauthorizedMessages.tokenInvalid });

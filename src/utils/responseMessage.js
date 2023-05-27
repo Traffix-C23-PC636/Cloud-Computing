@@ -28,9 +28,9 @@ const unauthorizedMessages = {
 
 // Pesan-pesan respons untuk kesalahan validasi data
 const validationErrorMessages = {
-    missingField: (field) => 'Kolom {field} wajib diisi',
+    missingField: (field) => 'Kolom {$field} wajib diisi',
     invalidEmail: 'Email tidak valid',
-    passwordTooShort: (minLength) => 'Panjang kata sandi minimal {minLength} karakter',
+    passwordTooShort: (minLength) => 'Panjang kata sandi minimal {$minLength} karakter',
     confirmPasswordMismatch: 'Konfirmasi kata sandi tidak sesuai',
 };
 
