@@ -1,7 +1,7 @@
-import admin from "../config/firebase.js";
 import {unauthorizedMessages} from "../utils/responseMessage.js";
+import firebaseApp from "../config/firebase.js";
 
-const firebaseAuthMiddleware = (req, res, next) => {
+const firebaseAuthMiddleware = async (req, res, next) => {
     const token = req.headers.authorization;
 
     if (!token) {
@@ -10,17 +10,19 @@ const firebaseAuthMiddleware = (req, res, next) => {
             message: unauthorizedMessages.missingToken });
     }
 
-    admin
+    firebaseApp
         .auth()
-        .verifyIdToken("token")
+        .verifyIdToken(token)
         .then((decodedToken) => {
+            req.auth = decodedToken
             req.uid = decodedToken.uid;
             next();
         })
         .catch(() => {
             return res.status(401).json({
                 status: 401,
-                message: unauthorizedMessages.tokenInvalid });
+                message: unauthorizedMessages.tokenInvalid
+            });
         });
 };
 

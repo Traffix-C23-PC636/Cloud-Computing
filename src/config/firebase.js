@@ -1,9 +1,9 @@
 import firebaseAdmin from 'firebase-admin';
-// import serviceAccount from 'credentials.json'; // lokasi file service credentials firebase
+import getSecretKey from "../utils/secretManager.js";
 
-const admin = firebaseAdmin.initializeApp({
-    // credential: firebaseAdmin.credential.cert(serviceAccount),
+const firebaseApp = await firebaseAdmin.initializeApp({
+    credential: firebaseAdmin.credential.cert(JSON.parse(await getSecretKey('FIREBASE_KEY')))
 });
 
-export default admin;
+export default firebaseApp;
 
