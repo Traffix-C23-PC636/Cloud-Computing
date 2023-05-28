@@ -1,2 +1,1 @@
 // unit test
-kentang

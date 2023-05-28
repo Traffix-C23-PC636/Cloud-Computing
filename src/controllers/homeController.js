@@ -1,7 +1,7 @@
-import {successMessages} from "../utils/responseMessage.js";
+import {successMessages} from '../utils/responseMessage.js'
 
 const HomeController = {
-    get: (req, res) =>{
+    get: (req, res) => {
         res.json({
             status: 200,
             message: successMessages.welcome
@@ -9,4 +9,4 @@ const HomeController = {
     }
 }
 
-export default HomeController;
+export default HomeController
