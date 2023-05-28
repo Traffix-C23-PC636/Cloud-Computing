@@ -16,7 +16,7 @@ loadSecretsToEnvironment().then(async () => {
   app.listen(8080, () => {
     console.log('Server listening on port 8080')
   })
-}).catch(() => {
-  console.log('Failed to start')
+}).catch((err) => {
+  console.log('Failed to start: ' + err)
   process.exit(1)
 })

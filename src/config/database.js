@@ -22,7 +22,8 @@ async function connectToDatabase() {
         await connection.authenticate()
         console.log('Koneksi ke database berhasil terhubung')
     } catch (error) {
-        console.error('Koneksi ke database gagal:', error)
+        console.error('Koneksi ke database gagal:', error.message)
+        throw new Error(error.message)
     }
 }
 
