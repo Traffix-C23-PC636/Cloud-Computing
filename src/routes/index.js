@@ -1,7 +1,6 @@
 import express from 'express'
-import HomeController from "../controllers/homeController.js";
-import firebaseAuthMiddleware from "../midldewares/firebaseAuthMiddleware.js";
+import HomeController from '../controllers/homeController.js'
 
 export const router = express.Router()
 
-router.get('/',firebaseAuthMiddleware, HomeController.get)
+router.get('/', HomeController.get)

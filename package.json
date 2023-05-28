@@ -23,7 +23,9 @@
   "dependencies": {
     "@google-cloud/secret-manager": "^4.2.2",
     "express": "^4.18.2",
-    "firebase-admin": "^11.8.0"
+    "firebase-admin": "^11.8.0",
+    "mysql2": "^3.3.2",
+    "sequelize": "^6.31.1"
   },
   "devDependencies": {
     "eslint": "^8.41.0",
@@ -31,6 +33,7 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-promise": "^6.1.1",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "sequelize-cli": "^6.6.0"
   }
 }

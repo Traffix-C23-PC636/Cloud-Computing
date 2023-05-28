@@ -1,16 +1,20 @@
-import client from "../config/secretManager.js";
+import client from '../config/secretManager.js'
 
-const getSecretKey = async (secret) => {
-    const secretName = `projects/traffix-cloud/secrets/`+secret+`/versions/latest`;
+const loadSecretsToEnvironment = async () => {
+    const [secrets] = await client.listSecrets({
+        parent: 'projects/traffix-cloud',
+    });
 
-    try {
+    for (const secret of secrets) {
         const [version] = await client.accessSecretVersion({
-            name: secretName,
+            name: `${secret.name}/versions/latest`,
         });
-        return version.payload.data.toString('utf8');
-    } catch (err) {
-         throw new Error('Gagal Mengambil Secret Key')
+
+        const secretName = secret.name.split('/').pop();
+        process.env[secretName] = version.payload.data.toString();
     }
 }
 
-export default getSecretKey;
+export {
+    loadSecretsToEnvironment
+}

@@ -1,9 +1,18 @@
-import firebaseAdmin from 'firebase-admin';
-import getSecretKey from "../utils/secretManager.js";
+import firebaseAdmin from 'firebase-admin'
 
-const firebaseApp = await firebaseAdmin.initializeApp({
-    credential: firebaseAdmin.credential.cert(JSON.parse(await getSecretKey('FIREBASE_KEY')))
-});
+let firebaseApp = firebaseAdmin;
 
-export default firebaseApp;
+async function initFirebaseAdmin() {
+    try {
+        firebaseApp = await firebaseAdmin.initializeApp({
+            credential: firebaseAdmin.credential.cert(JSON.parse(process.env.FIREBASE_KEY))
+        })
+    } catch (error) {
+        console.log('Initialization Firebase error: ' + error)
+    }
+}
 
+export {
+    firebaseApp,
+    initFirebaseAdmin
+}
