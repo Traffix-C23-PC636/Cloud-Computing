@@ -34,13 +34,6 @@ ATCSModel.init({
   is_monitoring: {
     type: DataTypes.STRING
   },
-  createdAt: {
-    type: DataTypes.DATE
-  },
-  updatedAt: {
-    type: DataTypes.DATE
-  }
-
 }, {
   connection,
   tableName: 'atcs'

@@ -14,9 +14,6 @@ KotaModel.init({
   },
   provinsi: {
     type: DataTypes.STRING
-  },
-  createdAt: {
-    type: DataTypes.DATE
   }
 }, {
   connection,
