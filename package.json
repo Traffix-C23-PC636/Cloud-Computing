@@ -8,7 +8,8 @@
     "lint:scripts": "eslint --fix --ext .js --ignore-path .gitignore .",
     "start": "node src/app.js",
     "dev": "nodemon src/app.js",
-    "test": "jest"
+    "test": "jest",
+    "watch": "nodemon"
   },
   "repository": {
     "type": "git",
@@ -22,18 +23,25 @@
   "homepage": "https://github.com/Irfanakbari/traffix-backend#readme",
   "dependencies": {
     "@google-cloud/secret-manager": "^4.2.2",
+    "async": "^3.2.4",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "firebase-admin": "^11.8.0",
     "mysql2": "^3.3.2",
-    "sequelize": "^6.31.1"
+    "request": "^2.88.2",
+    "sequelize": "^6.31.1",
+    "xml2js": "^0.6.0"
   },
   "devDependencies": {
+    "connect-livereload": "^0.6.1",
     "eslint": "^8.41.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-promise": "^6.1.1",
+    "livereload": "^0.9.3",
     "nodemon": "^2.0.22",
     "sequelize-cli": "^6.6.0"
   }
