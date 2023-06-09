@@ -1,6 +1,6 @@
 import firebaseAdmin from 'firebase-admin'
 
-let firebaseApp = firebaseAdmin;
+let firebaseApp = firebaseAdmin
 
 async function initFirebaseAdmin() {
     try {

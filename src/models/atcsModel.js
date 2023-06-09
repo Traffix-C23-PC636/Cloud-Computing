@@ -1,16 +1,13 @@
-import {DataTypes, Model} from 'sequelize'
-import {connection} from "../config/database.js";
-import kotaModel from "./kotaModel.js";
-import KotaModel from "./kotaModel.js";
+import {DataTypes} from 'sequelize'
+import kotaModel from './kotaModel.js'
+import {v4 as uuidv4} from 'uuid'
+import sequelize from '../config/database.js'
 
-class ATCSModel extends Model {
-}
-
-ATCSModel.init({
+const ATCSModel = sequelize.define('atcs', {
   id_atcs: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     primaryKey: true,
-    autoIncrement: true
+    defaultValue: () => uuidv4()
   },
   nama_atcs: {
     type: DataTypes.STRING
@@ -22,7 +19,7 @@ ATCSModel.init({
     type: DataTypes.STRING
   },
   id_kota: {
-    type: DataTypes.STRING,
+    type: DataTypes.INTEGER,
     references: {
       model: kotaModel,
       key: 'id_kota'
@@ -33,13 +30,9 @@ ATCSModel.init({
   },
   is_monitoring: {
     type: DataTypes.STRING
-  },
-}, {
-  connection,
-  tableName: 'atcs'
+  }
 })
 
-ATCSModel.belongsTo(KotaModel, {foreignKey: 'id_kota'});
-
+ATCSModel.belongsTo(kotaModel, {foreignKey: 'id_kota'})
 
 export default ATCSModel
