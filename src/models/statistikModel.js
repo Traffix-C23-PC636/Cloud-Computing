@@ -1,6 +1,6 @@
-import {DataTypes, Model} from "sequelize";
-import ATCSModel from "./atcsModel.js";
-import {connection} from "../config/database.js";
+import {DataTypes, Model} from 'sequelize'
+import ATCSModel from './atcsModel.js'
+import {connection} from '../config/database.js'
 
 class StatistikModel extends Model {
 }
@@ -9,42 +9,42 @@ StatistikModel.init(
     {
         id: {
             type: DataTypes.STRING,
-            primaryKey: true,
+            primaryKey: true
         },
         id_atcs: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             references: {
                 model: ATCSModel,
-                key: 'id_atcs',
-            },
+                key: 'id_atcs'
+            }
         },
         timestamp: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING
         },
         car: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER
         },
         motorcycle: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER
         },
         bus: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER
         },
         truck: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER
         },
         createdAt: {
-            type: DataTypes.DATE,
-        },
+            type: DataTypes.DATE
+        }
     },
     {
         connection,
         modelName: 'DataStatistik',
         tableName: 'data_statistik',
-        timestamps: false,
+        timestamps: false
     }
-);
+)
 
-StatistikModel.belongsTo(ATCSModel, {foreignKey: 'id_atcs'});
+StatistikModel.belongsTo(ATCSModel, {foreignKey: 'id_atcs'})
 
-export default StatistikModel;
+export default StatistikModel

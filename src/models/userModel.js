@@ -1,5 +1,5 @@
 import {DataTypes, Model} from 'sequelize'
-import {connection} from "../config/database.js";
+import {connection} from '../config/database.js'
 
 class UserModel extends Model {
 }
@@ -18,7 +18,7 @@ UserModel.init({
     role: {
         type: DataTypes.STRING,
         defaultValue: 'user'
-    },
+    }
 }, {
     connection,
     tableName: 'users',
