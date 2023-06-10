@@ -1,6 +1,7 @@
 import {unauthorizedMessages} from '../utils/responseMessage.js'
 import {firebaseApp} from '../config/firebase.js'
 
+
 const firebaseAuthMiddleware = async (req, res, next) => {
     let token = req.headers.authorization
 
@@ -28,4 +29,4 @@ const firebaseAuthMiddleware = async (req, res, next) => {
         })
 }
 
-export default firebaseAuthMiddleware
+export {firebaseAuthMiddleware}
