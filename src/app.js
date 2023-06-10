@@ -6,13 +6,17 @@ import {getWeatherData} from './utils/weather.js'
 
 const app = express()
 
-app.use(express.json())
-app.use(router)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
-app.use(cors());
+app.use(cors(
+    {
+      origin: ['*'],
+      optionsSuccessStatus: 200
+    }
+));
+app.use(router)
 
-(async function () {
+;(async function () {
   // Update
   await getWeatherData().then(() => {
     // set ke tiap 1 jam
