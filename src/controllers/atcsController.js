@@ -33,6 +33,25 @@ const ATCSController = {
                 message: e.message
             }).status(500)
         }
+    },
+    delete: async (req, res) => {
+        const {id} = req.params
+        try {
+            await ATCSModel.destroy({
+                where: {
+                    id_atcs: id
+                }
+            })
+            res.json({
+                status: 200,
+                message: 'Success'
+            }).status(200)
+        } catch (e) {
+            res.json({
+                status: 500,
+                message: e.message
+            }).status(500)
+        }
     }
 }
 
