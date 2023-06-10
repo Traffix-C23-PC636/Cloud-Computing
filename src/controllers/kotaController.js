@@ -18,6 +18,20 @@ const KotaController = {
         message: e.message
       }).status(500)
     }
+  },
+  get: async (req, res) => {
+    try {
+      const kota = await KotaModel.findAll()
+      res.json({
+        status: 200,
+        kota
+      }).status(200)
+    } catch (e) {
+      res.json({
+        status: 500,
+        message: e.message
+      }).status(500)
+    }
   }
 }
 
