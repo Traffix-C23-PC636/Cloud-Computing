@@ -1,18 +1,18 @@
 {
   "latitude": -6.875,
   "longitude": 107.5,
-  "generationtime_ms": 0.35500526428222656,
+  "generationtime_ms": 0.3879070281982422,
   "utc_offset_seconds": 25200,
   "timezone": "Asia/Jakarta",
   "timezone_abbreviation": "WIB",
   "elevation": 707,
   "current_weather": {
-    "temperature": 23,
-    "windspeed": 2.8,
-    "winddirection": 310,
-    "weathercode": 2,
+    "temperature": 22.9,
+    "windspeed": 1.1,
+    "winddirection": 270,
+    "weathercode": 1,
     "is_day": 0,
-    "time": "2023-06-10T21:00"
+    "time": "2023-06-10T22:00"
   },
   "hourly_units": {
     "time": "iso8601",

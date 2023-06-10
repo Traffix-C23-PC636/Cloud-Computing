@@ -10,8 +10,8 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(cors(
     {
-      origin: ['*', 'http://localhost:3000'],
-      optionsSuccessStatus: 200
+        origin: ['*', 'http://localhost:3000', 'dashboard.traffix.my.id'],
+        optionsSuccessStatus: 200
     }
 ));
 app.use(router)
