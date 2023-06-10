@@ -45,6 +45,4 @@ StatistikModel.init(
     }
 )
 
-StatistikModel.belongsTo(ATCSModel, {foreignKey: 'id_atcs'})
-
 export default StatistikModel
