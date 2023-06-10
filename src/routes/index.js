@@ -3,11 +3,10 @@ import HomeController from '../controllers/homeController.js'
 import HomepageController from '../controllers/homepageController.js'
 import KotaController from '../controllers/kotaController.js'
 import ATCSController from '../controllers/atcsController.js'
-import {firebaseAuthMiddlewareAdmin} from "../midldewares/firebaseAuthMiddleware.js";
 
 export const router = express.Router()
 
-router.get('/', firebaseAuthMiddlewareAdmin, HomeController.get)
+router.get('/', HomeController.get)
 // I have merged weather endpoint to homepage endpoint
 // router.get('/api/weather', WeatherController.get)
 router.get('/api/homepage', HomepageController.get)
