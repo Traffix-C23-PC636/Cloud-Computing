@@ -20,7 +20,10 @@ const sequelize = await loadSecretsToEnvironment().then(async () => {
         dbConfig.DB_PASS,
         {
             host: dbConfig.DB_HOST,
-            dialect: 'mysql'
+            dialect: 'mysql',
+            define: {
+                freezeTableName: true,
+            }
         }
     )
 })

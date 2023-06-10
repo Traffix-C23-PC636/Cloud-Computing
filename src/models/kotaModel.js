@@ -1,5 +1,6 @@
 import {DataTypes} from 'sequelize'
 import sequelize from '../config/database.js'
+import ATCSModel from "./atcsModel.js";
 
 const KotaModel = sequelize.define(
     'Kota',
@@ -16,10 +17,13 @@ const KotaModel = sequelize.define(
         }
     },
     {
+        freezeTableName: true,
         tableName: 'kota',
         createdAt: true,
         updatedAt: false
     }
 )
 
+KotaModel.hasMany(ATCSModel, {foreignKey: 'kota_id', as: 'kota'});
+ATCSModel.belongsTo(KotaModel, {foreignKey: 'kota_id', as: 'kota'});
 export default KotaModel

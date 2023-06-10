@@ -1,9 +1,16 @@
 import ATCSModel from '../models/atcsModel.js'
+import KotaModel from "../models/kotaModel.js";
 
 const ATCSController = {
     get: async (req, res) => {
         try {
-            const atcs = await ATCSModel.findAll();
+            const atcs = await ATCSModel.findAll({
+                include: {
+                    model: KotaModel,
+                    as: 'kota',
+                    attributes: ['nama_kota', 'provinsi'],
+                },
+            });
 
             res.json({
                 status: 200,
@@ -17,10 +24,10 @@ const ATCSController = {
         }
     },
     post: async (req, res) => {
-        const {nama_atcs, lat, long, id_kota, stream_url, is_monitoring} = req.body
+        const {nama_atcs, lat, long, kota_id, stream_url, is_monitoring} = req.body
         try {
             const atcs = await ATCSModel.create({
-                nama_atcs, lat, long, id_kota, stream_url, is_monitoring
+                nama_atcs, lat, long, kota_id, stream_url, is_monitoring
             })
 
             res.json({
