@@ -3,6 +3,7 @@ import HomeController from '../controllers/homeController.js'
 import HomepageController from '../controllers/homepageController.js'
 import KotaController from '../controllers/kotaController.js'
 import ATCSController from '../controllers/atcsController.js'
+import {firebaseAuthMiddleware} from "../midldewares/firebaseAuthMiddleware.js";
 
 export const router = express.Router()
 
@@ -11,12 +12,12 @@ router.get('/', HomeController.get)
 // router.get('/api/weather', WeatherController.get)
 router.get('/api/homepage', HomepageController.get)
 
-router.post('/api/admin/kota', KotaController.post)
-router.get('/api/admin/kota', KotaController.get)
-router.delete('/api/admin/kota/:id', KotaController.delete)
+router.post('/api/admin/kota', firebaseAuthMiddleware, KotaController.post)
+router.get('/api/admin/kota', firebaseAuthMiddleware, KotaController.get)
+router.delete('/api/admin/kota/:id', firebaseAuthMiddleware, KotaController.delete)
 
-router.post('/api/admin/atcs', ATCSController.post)
-router.get('/api/admin/atcs', ATCSController.get)
-router.delete('/api/admin/atcs/:id', ATCSController.delete)
+router.post('/api/admin/atcs', firebaseAuthMiddleware, ATCSController.post)
+router.get('/api/admin/atcs', firebaseAuthMiddleware, ATCSController.get)
+router.delete('/api/admin/atcs/:id', firebaseAuthMiddleware, ATCSController.delete)
 
 
