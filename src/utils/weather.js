@@ -41,76 +41,98 @@ async function getWeatherData() {
   )
 }
 
-function getWeatherDescription(weathercode) {
+function getWeatherDescription(weathercode, isDay) {
   let description = ''
+  let iconUrl = ''
 
   switch (weathercode) {
     case 0:
-      description = 'Cerah'
+      description = 'Cerah';
+      iconUrl = (isDay === 1) ? 'https://storage.googleapis.com/traffix_assets/weather%20icon/3.png' : 'https://storage.googleapis.com/traffix_assets/weather%20icon/9.png';
       break
     case 1:
-      description = 'Sebagian Cerah'
+      description = 'Sebagian Cerah';
+      iconUrl = (isDay === 1) ? 'https://storage.googleapis.com/traffix_assets/weather%20icon/3.png' : 'https://storage.googleapis.com/traffix_assets/weather%20icon/9.png';
       break
     case 2:
-      description = 'Sebagian Berawan'
+      description = 'Sebagian Berawan';
+      iconUrl = (isDay === 1) ? 'https://storage.googleapis.com/traffix_assets/weather%20icon/1.png' : 'https://storage.googleapis.com/traffix_assets/weather%20icon/12.png';
       break
     case 3:
-      description = 'Mendung'
+      description = 'Mendung';
+      iconUrl = (isDay === 1) ? 'https://storage.googleapis.com/traffix_assets/weather%20icon/6.png' : 'https://storage.googleapis.com/traffix_assets/weather%20icon/6.png';
       break
     case 45:
-      description = 'Kabut'
+      description = 'Kabut';
+      iconUrl = (isDay === 1) ? 'https://storage.googleapis.com/traffix_assets/weather%20icon/4.png' : 'https://storage.googleapis.com/traffix_assets/weather%20icon/4.png';
       break
     case 48:
-      description = 'Kabut Beku'
+      description = 'Kabut Beku';
+      iconUrl = (isDay === 1) ? 'https://storage.googleapis.com/traffix_assets/weather%20icon/4.png' : 'https://storage.googleapis.com/traffix_assets/weather%20icon/4.png';
       break
     case 51:
-      description = 'Gerimis Ringan'
+      description = 'Gerimis Ringan';
+      iconUrl = (isDay === 1) ? 'https://storage.googleapis.com/traffix_assets/weather%20icon/12.png' : 'https://storage.googleapis.com/traffix_assets/weather%20icon/14.png';
       break
     case 53:
-      description = 'Gerimis Sedang'
+      description = 'Gerimis Sedang';
+      iconUrl = (isDay === 1) ? 'https://storage.googleapis.com/traffix_assets/weather%20icon/12.png' : 'https://storage.googleapis.com/traffix_assets/weather%20icon/14.png';
       break
     case 55:
-      description = 'Gerimis'
+      description = 'Gerimis';
+      iconUrl = (isDay === 1) ? 'https://storage.googleapis.com/traffix_assets/weather%20icon/12.png' : 'https://storage.googleapis.com/traffix_assets/weather%20icon/14.png';
       break
     case 56:
-      description = 'Gerimis Beku Ringan'
+      description = 'Gerimis Beku Ringan';
+      iconUrl = (isDay === 1) ? 'https://storage.googleapis.com/traffix_assets/weather%20icon/12.png' : 'https://storage.googleapis.com/traffix_assets/weather%20icon/14.png';
       break
     case 57:
-      description = 'Gerimis Beku Tinggi'
+      description = 'Gerimis Beku Tinggi';
+      iconUrl = (isDay === 1) ? 'https://storage.googleapis.com/traffix_assets/weather%20icon/12.png' : 'https://storage.googleapis.com/traffix_assets/weather%20icon/14.png';
       break
     case 61:
-      description = 'Hujan Ringan'
+      description = 'Hujan Ringan';
+      iconUrl = (isDay === 1) ? 'https://storage.googleapis.com/traffix_assets/weather%20icon/2.png' : 'https://storage.googleapis.com/traffix_assets/weather%20icon/14.png';
       break
     case 63:
-      description = 'Hujan Sedang'
+      description = 'Hujan Sedang';
+      iconUrl = (isDay === 1) ? 'https://storage.googleapis.com/traffix_assets/weather%20icon/7.png' : 'https://storage.googleapis.com/traffix_assets/weather%20icon/7.png';
       break
     case 65:
-      description = 'Hujan Tinggi'
+      description = 'Hujan Tinggi';
+      iconUrl = (isDay === 1) ? 'https://storage.googleapis.com/traffix_assets/weather%20icon/7.png' : 'https://storage.googleapis.com/traffix_assets/weather%20icon/7.png';
       break
     case 66:
-      description = 'Hujan Beku Ringan'
+      description = 'Hujan Beku Ringan';
+      iconUrl = (isDay === 1) ? 'https://storage.googleapis.com/traffix_assets/weather%20icon/11.png' : 'https://storage.googleapis.com/traffix_assets/weather%20icon/11.png';
       break
     case 67:
-      description = 'Hujan Beku Tinggi'
+      description = 'Hujan Beku Tinggi';
+      iconUrl = (isDay === 1) ? 'https://storage.googleapis.com/traffix_assets/weather%20icon/11.png' : 'https://storage.googleapis.com/traffix_assets/weather%20icon/11.png';
       break
     case 80:
-      description = 'Hujan Petir Ringan'
+      description = 'Hujan Petir Ringan';
+      iconUrl = (isDay === 1) ? 'https://storage.googleapis.com/traffix_assets/weather%20icon/11.png' : 'https://storage.googleapis.com/traffix_assets/weather%20icon/11.png';
       break
     case 81:
-      description = 'Hujan Petir Sedang'
+      description = 'Hujan Petir Sedang';
+      iconUrl = (isDay === 1) ? 'https://storage.googleapis.com/traffix_assets/weather%20icon/11.png' : 'https://storage.googleapis.com/traffix_assets/weather%20icon/11.png';
       break
     case 82:
-      description = 'Hujan Petir Tinggi'
+      description = 'Hujan Petir Tinggi';
+      iconUrl = (isDay === 1) ? 'https://storage.googleapis.com/traffix_assets/weather%20icon/11.png' : 'https://storage.googleapis.com/traffix_assets/weather%20icon/11.png';
       break
     case 95:
       description = 'Badai Petir'
+      iconUrl = (isDay === 1) ? 'https://storage.googleapis.com/traffix_assets/weather%20icon/16.png' : 'https://storage.googleapis.com/traffix_assets/weather%20icon/16.png';
       break
     default:
-      description = 'Kode cuaca tidak diketahui'
+      description = 'Kode cuaca tidak diketahui';
+      iconUrl = (isDay === 1) ? 'https://storage.googleapis.com/traffix_assets/weather%20icon/3.png' : 'https://storage.googleapis.com/traffix_assets/weather%20icon/9.png';
       break
   }
 
-  return description
+  return {description, iconUrl}
 }
 
 const getCurrentWeather = () => {
@@ -125,11 +147,13 @@ const getCurrentWeather = () => {
       const weatherData = weather.current_weather
 
       if (weatherData) {
+        const description = getWeatherDescription(weatherData.weathercode, weatherData.is_day);
         const filteredData = {
           weather: {
             temperature: weatherData.temperature,
             is_day: weatherData.is_day,
-            weather_code: getWeatherDescription(weatherData.weathercode)
+            weather_code: description.description,
+            icon_url: description.iconUrl
           }
         }
         resolve(filteredData)
@@ -147,4 +171,4 @@ const getCurrentWeather = () => {
   })
 }
 
-export {getWeatherData, getWeatherDescription, getCurrentWeather}
+export {getWeatherData, getCurrentWeather}
