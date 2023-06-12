@@ -1,45 +1,11 @@
-import fs from 'fs'
-import axios from 'axios'
-import async from 'async'
-import bmkgData from '../const/bmkg_data.js'
+import {Storage} from "@google-cloud/storage";
 
-async function getWeatherData() {
-  let data
 
-  console.log('getting weather data...')
+const storage = new Storage();
+const bucketName = 'traffix_assets'; // Ganti dengan nama bucket Cloud Storage Anda
+const directory = 'weather'; // Nama direktori di dalam bucket
+const fileName = 'weather.json'; // Nama file JSON yang ingin Anda ambil
 
-  async.forEachOf(
-      bmkgData,
-      async (link, key) => {
-        try {
-          // I changed to axios because request is deprecated library
-          const response = await axios.get(link)
-          console.log(link)
-
-          if (response.status === 200) {
-            data = response.data
-          }
-        } catch (error) {
-          console.error(error)
-        }
-      },
-      (err) => {
-        if (err) {
-          console.log(err)
-        } else {
-          const file = 'cache/weather.json'
-
-          fs.writeFile(file, JSON.stringify(data), 'utf-8', (e) => {
-            if (e) {
-              console.log(e)
-            } else {
-              console.log('done get weather')
-            }
-          })
-        }
-      }
-  )
-}
 
 function getWeatherDescription(weathercode, isDay) {
   let description = ''
@@ -136,39 +102,41 @@ function getWeatherDescription(weathercode, isDay) {
 }
 
 const getCurrentWeather = () => {
-  return new Promise((resolve, reject) => {
-    fs.readFile('cache/weather.json', async (err, data) => {
+  return new Promise(async (resolve, reject) => {
+    const file = storage.bucket(bucketName).file(`${directory}/${fileName}`);
+
+    await file.download((err, contents) => {
       if (err) {
-        reject(err)
-        return
+        reject(err);
+        return;
       }
 
-      const weather = await JSON.parse(data.toString())
-      const weatherData = weather.current_weather
+      const weatherData = JSON.parse(contents.toString('utf8'))['link1']['current_weather'];
+
 
       if (weatherData) {
-        const description = getWeatherDescription(weatherData.weathercode, weatherData.is_day);
+        const description = getWeatherDescription(weatherData['weathercode'], weatherData.is_day);
         const filteredData = {
           weather: {
             temperature: weatherData.temperature,
             is_day: weatherData.is_day,
             weather_code: description.description,
-            icon_url: description.iconUrl
-          }
-        }
-        resolve(filteredData)
+            icon_url: description.iconUrl,
+          },
+        };
+        resolve(filteredData);
       } else {
         const filteredData = {
           weather: {
             temperature: '-',
             is_day: 0,
-            weather_code: '-'
-          }
-        }
-        resolve(filteredData)
+            weather_code: '-',
+          },
+        };
+        resolve(filteredData);
       }
-    })
-  })
-}
+    });
+  });
+};
 
-export {getWeatherData, getCurrentWeather}
+export {getCurrentWeather}
