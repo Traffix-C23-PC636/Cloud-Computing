@@ -9,7 +9,7 @@ const HomePageController = {
         kota_id: 32
       },
       attributes: {
-        exclude: ['updatedAt', 'kota_id']
+        exclude: ['updatedAt', 'kota_id', 'createdAt', 'is_monitoring', 'stream_url']
       }
     })
 
