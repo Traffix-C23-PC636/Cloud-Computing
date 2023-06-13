@@ -30,6 +30,20 @@ const StatistikController = {
             }).status(500)
         }
     },
+    get: async (req, res) => {
+        try {
+            const statistik = await StatistikModel.findAll()
+            res.json({
+                status: 200,
+                statistik
+            }).status(200)
+        } catch (e) {
+            res.json({
+                status: 500,
+                message: e.message
+            }).status(500)
+        }
+    },
 }
 
 export default StatistikController
