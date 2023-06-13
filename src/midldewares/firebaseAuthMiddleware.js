@@ -29,4 +29,4 @@ const firebaseAuthMiddleware = async (req, res, next) => {
         })
 }
 
-export {firebaseAuthMiddleware}
+export default firebaseAuthMiddleware
