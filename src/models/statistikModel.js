@@ -1,51 +1,44 @@
-import {DataTypes, Model} from 'sequelize'
+import {DataTypes} from 'sequelize'
 import ATCSModel from './atcsModel.js'
-import {connection} from '../config/database.js'
+import {v4 as uuidv4} from "uuid";
+import sequelize from "../config/database.js";
 
-class StatistikModel extends Model {
-}
-
-StatistikModel.init(
-    {
-        id: {
-            type: DataTypes.STRING,
-            primaryKey: true
-        },
-        id_atcs: {
-            type: DataTypes.STRING,
-            references: {
-                model: ATCSModel,
-                key: 'id_atcs'
-            }
-        },
-        car: {
-            type: DataTypes.INTEGER
-        },
-        motorcycle: {
-            type: DataTypes.INTEGER
-        },
-        bus: {
-            type: DataTypes.INTEGER
-        },
-        truck: {
-            type: DataTypes.INTEGER
-        },
-        createdAt: {
-            type: DataTypes.DATE
-        },
-        data_in: {
-            type: DataTypes.INTEGER
-        },
-        data_out: {
-            type: DataTypes.INTEGER
-        },
+const StatistikModel = sequelize.define('DataStatistik', {
+    id: {
+        type: DataTypes.STRING,
+        primaryKey: true,
+        defaultValue: () => uuidv4()
     },
-    {
-        connection,
-        modelName: 'DataStatistik',
-        tableName: 'data_statistik',
-        timestamps: false
+    id_atcs: {
+        type: DataTypes.STRING,
+        foreignKey: true
+    },
+    car: {
+        type: DataTypes.INTEGER
+    },
+    motorcycle: {
+        type: DataTypes.INTEGER
+    },
+    bus: {
+        type: DataTypes.INTEGER
+    },
+    truck: {
+        type: DataTypes.INTEGER
+    },
+    data_in: {
+        type: DataTypes.INTEGER
+    },
+    data_out: {
+        type: DataTypes.INTEGER
     }
-)
+}, {
+    modelName: 'DataStatistik',
+    tableName: 'data_statistik',
+    timestamps: false,
+    createdAt: 'createdAt'
+});
+
+ATCSModel.hasMany(StatistikModel, {foreignKey: 'id_atcs', as: 'atcs'});
+StatistikModel.belongsTo(ATCSModel, {foreignKey: 'id_atcs', as: 'atcs'});
 
 export default StatistikModel
