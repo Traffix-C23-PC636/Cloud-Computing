@@ -18,9 +18,6 @@ StatistikModel.init(
                 key: 'id_atcs'
             }
         },
-        timestamp: {
-            type: DataTypes.STRING
-        },
         car: {
             type: DataTypes.INTEGER
         },
@@ -35,7 +32,13 @@ StatistikModel.init(
         },
         createdAt: {
             type: DataTypes.DATE
-        }
+        },
+        data_in: {
+            type: DataTypes.INTEGER
+        },
+        data_out: {
+            type: DataTypes.INTEGER
+        },
     },
     {
         connection,

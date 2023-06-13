@@ -1,5 +1,6 @@
 import ATCSModel from '../models/atcsModel.js'
 import KotaModel from "../models/kotaModel.js";
+import log from "../utils/logging.js";
 
 const ATCSController = {
     get: async (req, res) => {
@@ -17,6 +18,7 @@ const ATCSController = {
                 atcs
             }).status(200)
         } catch (e) {
+            await log.error(e.message)
             res.json({
                 status: 500,
                 message: e.message
@@ -35,6 +37,7 @@ const ATCSController = {
                 data: atcs.dataValues
             }).status(201)
         } catch (e) {
+            await log.error(e.message)
             res.json({
                 status: 500,
                 message: e.message
@@ -54,6 +57,7 @@ const ATCSController = {
                 message: 'Success'
             }).status(200)
         } catch (e) {
+            await log.error(e.message)
             res.json({
                 status: 500,
                 message: e.message
