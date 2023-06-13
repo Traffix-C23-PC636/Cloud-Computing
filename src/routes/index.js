@@ -19,6 +19,7 @@ router.get('/api/admin/kota', firebaseAuthMiddleware, KotaController.get)
 router.delete('/api/admin/kota/:id', firebaseAuthMiddleware, KotaController.delete)
 
 router.get('/api/admin/statistik', firebaseAuthMiddleware, StatistikController.get)
+router.delete('/api/admin/statistik/:id', firebaseAuthMiddleware, StatistikController.delete)
 
 router.post('/api/admin/atcs', firebaseAuthMiddleware, ATCSController.post)
 router.get('/api/admin/atcs', firebaseAuthMiddleware, ATCSController.get)
