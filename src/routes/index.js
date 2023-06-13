@@ -4,6 +4,7 @@ import HomepageController from '../controllers/homepageController.js'
 import KotaController from '../controllers/kotaController.js'
 import ATCSController from '../controllers/atcsController.js'
 import {firebaseAuthMiddleware} from "../midldewares/firebaseAuthMiddleware.js";
+import StatistikController from "../controllers/statistikController.js";
 
 export const router = express.Router()
 
@@ -19,5 +20,7 @@ router.delete('/api/admin/kota/:id', firebaseAuthMiddleware, KotaController.dele
 router.post('/api/admin/atcs', firebaseAuthMiddleware, ATCSController.post)
 router.get('/api/admin/atcs', firebaseAuthMiddleware, ATCSController.get)
 router.delete('/api/admin/atcs/:id', firebaseAuthMiddleware, ATCSController.delete)
+
+router.post('/api/statistik', StatistikController.post);
 
 
