@@ -20,7 +20,7 @@ const errorMessages = {
 
 // Pesan-pesan respons untuk akses tidak diizinkan
 const unauthorizedMessages = {
-    missingToken: 'Token tidak ditemukan',
+    missingToken: 'Token tidak ditemukan, Mohon sertakan token firebase yang valid',
     expiredToken: 'Token sudah kadaluarsa',
     tokenInvalid: 'Maaf, token tidak valid',
     invalidPermissions: 'Izin tidak valid'
