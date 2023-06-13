@@ -3,9 +3,9 @@ import HomeController from '../controllers/homeController.js'
 import HomepageController from '../controllers/homepageController.js'
 import KotaController from '../controllers/kotaController.js'
 import ATCSController from '../controllers/atcsController.js'
-import {firebaseAuthMiddleware} from "../midldewares/firebaseAuthMiddleware.js";
 import StatistikController from "../controllers/statistikController.js";
 import restrictToIP from "../midldewares/restrictToIP.js";
+import firebaseAuthMiddleware from "../midldewares/firebaseAuthMiddleware.js";
 
 export const router = express.Router()
 
