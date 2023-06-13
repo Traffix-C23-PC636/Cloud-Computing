@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/Irfanakbari/traffix-backend#readme",
   "dependencies": {
+    "@google-cloud/logging": "^10.5.0",
     "@google-cloud/secret-manager": "^4.2.2",
     "@google-cloud/storage": "^6.11.0",
     "async": "^3.2.4",
