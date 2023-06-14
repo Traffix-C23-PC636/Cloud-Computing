@@ -1,5 +1,6 @@
 import {getCurrentWeather} from '../utils/weather.js'
 import ATCSModel from "../models/atcsModel.js";
+import StatistikModel from "../models/statistikModel.js";
 
 const HomePageController = {
   get: async (req, res) => {
@@ -15,12 +16,22 @@ const HomePageController = {
 
     let statData = []
 
-    atcsData.forEach(item => {
+    for (const item of atcsData) {
+      const statistik = await StatistikModel.findAll({
+        where: {
+          id_atcs: item.id_atcs
+        },
+        attributes: {
+          exclude: ['id', 'id_atcs'],
+        },
+        order: [['createdAt', 'DESC']],
+        limit: 3
+      })
       statData.push({
         info: item,
-        statistik: {}
+        statistik
       })
-    })
+    }
 
     res.json({
       status: 200,
