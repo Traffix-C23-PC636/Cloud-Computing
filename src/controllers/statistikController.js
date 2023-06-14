@@ -32,7 +32,9 @@ const StatistikController = {
     },
     get: async (req, res) => {
         try {
-            const statistik = await StatistikModel.findAll()
+            const statistik = await StatistikModel.findAll({
+                order: [['createdAt', 'DESC']]
+            })
             res.json({
                 status: 200,
                 statistik
