@@ -23,7 +23,13 @@ const sequelize = await loadSecretsToEnvironment().then(async () => {
             dialect: 'mysql',
             define: {
                 freezeTableName: true,
-            }
+            },
+            dialectOptions: {
+                useUTC: false, //for reading from database
+                dateStrings: true,
+                typeCast: true
+            },
+            timezone: '+07:00'
         }
     )
 })
