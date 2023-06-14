@@ -30,6 +30,9 @@ const StatistikModel = sequelize.define('DataStatistik', {
     },
     data_out: {
         type: DataTypes.INTEGER
+    },
+    createdAt: {
+        type: DataTypes.DATE
     }
 }, {
     modelName: 'DataStatistik',
