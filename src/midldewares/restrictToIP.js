@@ -1,8 +1,8 @@
 // customMiddleware.js
 
+const allowedIPs = ['34.128.77.40', '127.0.0.1', 'localhost', '::1']; // Array of allowed IP addresses
 
 const restrictToIP = (req, res, next) => {
-    const allowedIPs = process.env.ALLOWED_IP// Array of allowed IP addresses
     const requestIP = req.ip;
 
     if (allowedIPs.includes(requestIP)) {
