@@ -11,7 +11,7 @@ export const router = express.Router()
 router.get('/', HomeController.get)
 // I have merged weather endpoint to homepage endpoint
 // router.get('/api/weather', WeatherController.get)
-router.get('/api/homepage', firebaseAuthMiddleware, HomepageController.get)
+router.get('/api/homepage', HomepageController.get)
 
 router.post('/api/admin/kota', firebaseAuthMiddleware, KotaController.post)
 router.get('/api/admin/kota', firebaseAuthMiddleware, KotaController.get)
