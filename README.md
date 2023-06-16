@@ -13,4 +13,11 @@ Traffix REST API is a project that provides a RESTful Application Programming In
 - MySQL: Relational database management system used for storing application data.
 - Sequelize: Object-Relational Mapping (ORM) for simplifying interaction with MySQL database.
 - Firebase Auth: Used for user authentication and authorization.
-- Other:
+
+## Google Cloud Product
+- Cloud Run
+- Cloud SQL
+- Cloud Secret Manager
+- Firebase Auth
+- Cloud Functions
+- Cloud Storage
